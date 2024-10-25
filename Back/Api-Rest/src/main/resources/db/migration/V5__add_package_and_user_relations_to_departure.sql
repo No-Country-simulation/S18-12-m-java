@@ -7,4 +7,3 @@ CREATE TABLE departure_user (
     FOREIGN KEY (departure_id) REFERENCES departure(id),
     FOREIGN KEY (user_id) REFERENCES app_user(id)
 );
-
