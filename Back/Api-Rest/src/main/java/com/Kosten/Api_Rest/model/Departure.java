@@ -9,6 +9,7 @@ import java.util.List;
 
 
 @Entity
+@Table(name = "departure")
 @Getter
 @Setter
 @AllArgsConstructor
