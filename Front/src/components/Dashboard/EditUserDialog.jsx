@@ -133,15 +133,15 @@ const EditUserDialog = ({ open, onClose, userForm, setUserForm, fetchUsers }) =>
       <DialogActions>
         <Button onClick={onClose} color='transparent'>Cerrar</Button>
         <Button onClick={handleSubmitEdit} color='transparent'>Guardar</Button>
-      </DialogActions>
+        
+        </DialogActions>
+
+        
     </Dialog>
   );
 };
 
 export default EditUserDialog;
-
-
-
 
 //******************** version 0 KO *****/
 // import React from 'react';
@@ -197,3 +197,22 @@ export default EditUserDialog;
 // };
 
 // export default EditUserDialog;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
