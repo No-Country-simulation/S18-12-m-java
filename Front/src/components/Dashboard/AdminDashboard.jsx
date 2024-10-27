@@ -87,7 +87,7 @@ const AdminDashboard = () => {
         <Table sx={{ borderBottom: 'none' }}>
           <TableBody>
             {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => (
-              <TableRow key={user.id} sx={{ backgroundColor: 'grey.200', marginBottom: 1, borderRadius: 1, display: 'flex', alignItems: 'center',justifyContent: 'space-between', padding: 1, boxShadow: 2 }}>
+              <TableRow key={user.id} sx={{ backgroundColor: 'grey.200', marginBottom: 1, borderRadius: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 1, boxShadow: 2 }}>
                 <TableCell sx={{ border: 0 }}>{user.id}</TableCell>
                 <TableCell sx={{ border: 0 }}>{user.username}</TableCell>
                 <TableCell sx={{ border: 0 }}>{user.email}</TableCell>
