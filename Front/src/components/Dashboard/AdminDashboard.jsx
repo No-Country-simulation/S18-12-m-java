@@ -30,6 +30,12 @@ const AdminDashboard = () => {
     }
   };
 
+  const filteredUsers = users.filter(user => {
+    if (filter === 'Activos') return user.isActive;
+    if (filter === 'Inactivos') return !user.isActive;
+    return true; // For 'Todos' tab
+  });
+
   const handleOpenAddUser = () => {
     setUserForm({ id: null, username: '', email: '', contact: '', password: '', confirmPassword: '', role: 'USER' });
     setOpenAdd(true);
@@ -87,12 +93,13 @@ const AdminDashboard = () => {
       <Paper elevation={0} sx={{ backgroundColor: 'transparent' }}>
         <Table sx={{ borderBottom: 'none' }}>
           <TableBody>
-            {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => (
+            {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => (
               <TableRow key={user.id} sx={{ backgroundColor: 'grey.200', marginBottom: 1, borderRadius: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 1, boxShadow: 2 }}>
                 <TableCell sx={{ border: 0 }}>{user.id}</TableCell>
                 <TableCell sx={{ border: 0 }}>{user.username}</TableCell>
                 <TableCell sx={{ border: 0 }}>{user.email}</TableCell>
                 <TableCell sx={{ border: 0 }}>{user.contact}</TableCell>
+                <TableCell sx={{ border: 0 }}>{user.isActive}</TableCell>
                 <TableCell sx={{ border: 0 }}>{user.role}</TableCell>
                 <TableCell sx={{ border: 0 }}>
                   <Button onClick={() => handleOpenEditUser(user.id)} sx={{ backgroundColor: 'grey.300', mr: 1, '&:hover': { backgroundColor: 'grey.400' } }}><RiEditLine /> EDITAR</Button>
@@ -105,7 +112,7 @@ const AdminDashboard = () => {
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={users.length}
+          count={filteredUsers.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
