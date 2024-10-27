@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, DialogActions, DialogContent, DialogTitle, TextField, Button, Typography } from '@mui/material';
 
-const EditUserDialog = ({ open, onClose, userForm, handleInputChange, handleSubmit }) => {
+const EditUserDialog = ({ open, onClose, userForm, handleInputChange, handleSubmitEdit }) => {
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
       <DialogTitle sx={{ padding: "10", gap: "1.25rem", alignItems: "center", justifyItems: "center" }}> 
@@ -44,7 +44,7 @@ const EditUserDialog = ({ open, onClose, userForm, handleInputChange, handleSubm
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose} color="transparent">Cerrar</Button>
-        <Button onClick={handleSubmit} color="transparent">Guardar</Button>
+        <Button onClick={handleSubmitEdit} color="transparent">Guardar</Button>
       </DialogActions>
     </Dialog>
   );

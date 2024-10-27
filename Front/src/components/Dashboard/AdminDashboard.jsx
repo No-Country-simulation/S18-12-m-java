@@ -71,7 +71,19 @@ const AdminDashboard = () => {
   };
 
   const handleSubmitEdit = async () => {
-    // Edit user logic here
+        try {
+        // Update existing user
+        await axios.put('https://kostentours-api-10061c08f8f8.herokuapp.com/user/update', {
+          id: userForm.id,
+          username: userForm.username,
+          contact: userForm.contact,
+          email: userForm.email
+        });
+        fetchUsers();
+        handleCloseEdit();
+    } catch (error) {
+      console.error('Error submitting user:', error);
+    }
     setOpenEdit(false);
   };
 
