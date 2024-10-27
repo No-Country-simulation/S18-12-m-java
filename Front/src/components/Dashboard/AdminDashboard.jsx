@@ -41,6 +41,7 @@ const AdminDashboard = () => {
       const { username, email, contact, role } = response.data.data;
       setUserForm({ id, username, email, contact, role });
       setOpenEdit(true);
+      console.log(userForm)
     } catch (error) {
       console.error('Error fetching user:', error);
     }
